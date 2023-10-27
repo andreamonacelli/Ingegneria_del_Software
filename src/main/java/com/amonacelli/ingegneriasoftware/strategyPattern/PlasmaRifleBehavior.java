@@ -1,4 +1,4 @@
-package com.amonacelli.ingegneriasoftware.videogioco;
+package com.amonacelli.ingegneriasoftware.strategyPattern;
 
 public class PlasmaRifleBehavior implements FightBehavior{
     @Override

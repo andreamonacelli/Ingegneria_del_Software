@@ -1,4 +1,4 @@
-package com.amonacelli.ingegneriasoftware.commandPattern;
+package com.amonacelli.ingegneriasoftware.commandDashButton;
 
 public class DashButton {
     Command buttonCommand;

@@ -1,4 +1,4 @@
-package com.amonacelli.ingegneriasoftware.videogioco;
+package com.amonacelli.ingegneriasoftware.strategyPattern;
 
 public class LaserGunBehavior implements FightBehavior{
     @Override
