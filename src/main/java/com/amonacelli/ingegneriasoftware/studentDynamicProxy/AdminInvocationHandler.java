@@ -4,10 +4,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
  
-public class RegisteredInvocationHandler implements InvocationHandler {
+public class AdminInvocationHandler implements InvocationHandler {
 	UserBean person;
  
-	public RegisteredInvocationHandler(UserBean person) {
+	public AdminInvocationHandler(UserBean person) {
 		this.person = person;
 	}
  
@@ -15,13 +15,7 @@ public class RegisteredInvocationHandler implements InvocationHandler {
 			throws IllegalAccessException {
   
 		try {
-			if (method.getName().startsWith("get")) {
-				return method.invoke(person, args);
-   			} else if (method.getName().equals("setHotOrNotRating")) {
-				throw new IllegalAccessException();
-			} else if (method.getName().startsWith("set")) {
-				return method.invoke(person, args);
-			} 
+			return method.invoke(person, args);
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         } 

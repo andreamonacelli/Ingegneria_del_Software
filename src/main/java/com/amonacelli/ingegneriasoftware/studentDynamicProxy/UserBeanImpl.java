@@ -4,7 +4,16 @@ public class UserBeanImpl implements UserBean {
 	String nome;
 	String cognome;
 	String matricola;
-  
+	boolean iscritto;
+
+	public boolean isIscritto() {
+		return iscritto;
+	}
+
+	public void setIscritto(boolean iscritto) {
+		this.iscritto = iscritto;
+	}
+
 	public String getNome() {
 		return nome;
 	} 

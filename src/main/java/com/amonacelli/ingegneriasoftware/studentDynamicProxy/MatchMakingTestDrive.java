@@ -4,7 +4,7 @@ import java.lang.reflect.Proxy;
 import java.util.HashMap;
 
 /**
- * Da riformattare guardando il codice del prof, più che altro per quanto riguarda il test
+ * Da riformattare guardando il codice del prof per capire bene quali erano le modifiche da fare
  */
 public class MatchMakingTestDrive {
 	HashMap<String, UserBean> datingDB = new HashMap<String, UserBean>();
@@ -19,7 +19,7 @@ public class MatchMakingTestDrive {
 	}
 
 	public void drive() {
-		/* UserBean joe = getPersonFromDatabase("Joe Javabean");
+		/* UserBean admin = getPersonFromDatabase("Joe Javabean");
 		UserBean ownerProxy = getOwnerProxy(joe);
 		System.out.println("Name is " + ownerProxy.getName());
 		ownerProxy.setInterests("bowling, Go");
@@ -48,7 +48,7 @@ public class MatchMakingTestDrive {
         return (UserBean) Proxy.newProxyInstance(
             	person.getClass().getClassLoader(),
             	person.getClass().getInterfaces(),
-                new RegisteredInvocationHandler(person));
+                new AdminInvocationHandler(person));
 	}
 
 	UserBean getNonOwnerProxy(UserBean person) {
@@ -56,24 +56,17 @@ public class MatchMakingTestDrive {
         return (UserBean) Proxy.newProxyInstance(
             	person.getClass().getClassLoader(),
             	person.getClass().getInterfaces(),
-                new NotRegisteredInvocationHandler(person));
+                new StudentInvocationHandler(person));
 	}
 
-	UserBean getPersonFromDatabase(String name) {
-		return (UserBean)datingDB.get(name);
+	UserBean getPersonFromDatabase(String cognome) {
+		return (UserBean)datingDB.get(cognome);
 	}
 
 	void initializeDatabase() {
-		/* UserBean joe = new UserBeanImpl();
-		joe.setName("Joe Javabean");
-		joe.setInterests("cars, computers, music");
-		joe.setHotOrNotRating(7);
-		datingDB.put(joe.getName(), joe);
-
-		UserBean kelly = new UserBeanImpl();
-		kelly.setName("Kelly Klosure");
-		kelly.setInterests("ebay, movies, music");
-		kelly.setHotOrNotRating(6);
-		datingDB.put(kelly.getName(), kelly); */
+		UserBean student = new UserBeanImpl();
+		student.setNome("Andrea");
+		student.setCognome("Monacelli");
+		datingDB.put(student.getCognome(), student);
 	}
 }
